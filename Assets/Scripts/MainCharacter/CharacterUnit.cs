@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class CharacterUnit : UnitsBase {
+﻿public class CharacterUnit : UnitsBase {
 
     // Overriding the parent base start
     override protected void Start()

@@ -4,6 +4,9 @@ using UnityEngine;
 public class GlobalGameController : MonoBehaviour {
 
     [HideInInspector]
+    public Camera playerCameraRef;
+
+    [HideInInspector]
     public List<UnitsBase> availableUnits;
 
     [HideInInspector]
@@ -12,20 +15,16 @@ public class GlobalGameController : MonoBehaviour {
     [HideInInspector]
     public List<UnitsBase> highlightedUnits;
 
+    private void Awake()
+    {
+        playerCameraRef = Camera.main;
+    }
+
     void Start()
     {
-        selectedUnits = new List<UnitsBase>();
-        highlightedUnits = new List<UnitsBase>();
-
-        availableUnits = new List<UnitsBase>();
-        foreach (UnitsBase selectableObject in FindObjectsOfType(typeof(UnitsBase)))
-        {
-            availableUnits.AddUnitToUnitsArray(selectableObject, false);
-        }
     }
 
     void Update()
     {
-
     }
 }

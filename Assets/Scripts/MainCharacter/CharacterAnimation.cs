@@ -1,44 +1,43 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class CharacterAnimation : MonoBehaviour {
 
 	public float deadZone = 5f;
 	
-	private UnityEngine.AI.NavMeshAgent nav;
 	private Animator anim;
 	private HashIDs hash;
 	private AnimatorSetup animSetup;
+    private MainCharacterController unitController;
 
-	void Awake(){
-		nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+
+    void Awake(){
 		anim = GetComponent<Animator>();
 		hash = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<HashIDs>();
+        unitController = transform.parent.gameObject.GetComponent<MainCharacterController>();
 
-		nav.updateRotation = false;
-		animSetup = new AnimatorSetup(anim, hash);
+        animSetup = new AnimatorSetup(anim, hash);
 		anim.SetLayerWeight(1, 1f);
 		anim.SetLayerWeight(2, 1f);
 		deadZone *= Mathf.Deg2Rad;
 	}
 
 	void Update(){
-		NavAnimSetup();
+		AnimSetup();
 	}
 
 	void OnAnimatorMove(){
-		nav.velocity = anim.deltaPosition / Time.deltaTime;
 		transform.rotation = anim.rootRotation;
 	}
 
-	void NavAnimSetup(){
-		float speed;
-		float angle;
+	void AnimSetup(){
+        //float speed = Vector3.Project(nav.desiredVelocity, transform.forward).magnitude;
+        //float angle = FindAngle(transform.forward, nav.desiredVelocity, transform.up);
 
-		speed = Vector3.Project(nav.desiredVelocity, transform.forward).magnitude;
-		angle = FindAngle(transform.forward, nav.desiredVelocity, transform.up);
-		if(Mathf.Abs(angle) < deadZone){
-			transform.LookAt(transform.position + nav.desiredVelocity);
+        float speed = Vector3.Project(unitController.moveDirection, transform.forward).magnitude;
+        float angle = FindAngle(transform.forward, unitController.moveDirection, transform.up);
+
+        if (Mathf.Abs(angle) < deadZone){
+			transform.LookAt(transform.position + unitController.moveDirection);
 			angle = 0f;
 		}
 		animSetup.Setup(5000, angle);
@@ -54,7 +53,6 @@ public class CharacterAnimation : MonoBehaviour {
 		angle *= Mathf.Deg2Rad;
 
 		return angle;
-
 	}
 
 }

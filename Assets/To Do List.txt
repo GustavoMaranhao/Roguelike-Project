@@ -1,54 +1,26 @@
 Geral:
- - Check the necessity for inheritance for units (selection, movement, HUD display, etc...) - Yes;
+ - Check the necessity for inheritance for units (selection, movement, HUD display, etc...);
 
 Camera:
- - Change from fixed orthographic camera to free roaming within the game area; - Ok
- - Adjust camera stopping speed; - Ok
+ - Change from click-based to isometric camera; - Ok
 
 AI:
- - Improve enemy's path finding;
- - Create a player path finding;
+ - Create enemy's path finding;
  - Create enemies' life bars;
-
-Builder:
- - Create a builder;
-
-Construction:
- - Create a timer for buildings' construction;
- - Create building decal; - Ok
- - Create buildable and unbuildable areas; - Ok
- - Esc to cancel; - Ok
-
-Towers:
- - Create projectiles;
- - Create shooting animations;
 
 Gameplay:
  - Create the lives system;
  - Create victory/loss conditions;
- - Create more diverse waves with more difficult enemies;
- - Create in-game resources;
- - Create unit selection; - Ok
- - Build only moves when selected; - Ok
- - Builder can ignore terrain;
- - Click move particle;
- - Stopping distance;
+ - Create more waves with enemies;
+
+Player:
+ - Fix the movement animation direction;
 
 Interface:
  - Create an interface;
- - Create a more organized HUD:
-  - Build menus;
-  - Stats;
-  - Resources;
  - Display enemy health bars on top of their heads;
  - Change HUD components;
  - Retractable HUD (Save in player prefs);
- - Selection boxes; - Ok
- - Selection circles on units; - Ok
- - Change cursors on different actors; - Ok
- - Selection circle performance; - Ok
- - Add only for the type already in selection, even if highlights multiple types; - Ok
- - Double click only for units within viewport; - Ok
 
 Map:
  - Beautify the map;
