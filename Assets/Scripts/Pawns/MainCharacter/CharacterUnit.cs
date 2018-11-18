@@ -1,4 +1,6 @@
-﻿public class CharacterUnit : UnitsBase {
+﻿using UnityEngine;
+
+public class CharacterUnit : UnitsBase {
 
     // Overriding the parent base start
     override protected void Start()
