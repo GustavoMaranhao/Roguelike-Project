@@ -10,18 +10,15 @@ public class UnitsBase : MonoBehaviour
     [Tooltip("Speed with which the unit turns.")]
     public float rotationSpeed = 1f;
 
-    private GlobalGameController globalGameController;
-    private Camera cameraRef;
+    [HideInInspector]
+    public bool isMoving = false;
 
-    private MainCharacterController unitController;
+    private ControllerBase unitController;
     private Animator animator;
 
     void Awake()
     {
-        globalGameController = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<GlobalGameController>();
-        unitController = transform.parent.gameObject.GetComponent<MainCharacterController>();
-
-        cameraRef = globalGameController.playerCameraRef;
+        unitController = transform.parent.gameObject.GetComponent<ControllerBase>();
 
         animator = GetComponent<Animator>();
     }
@@ -32,10 +29,12 @@ public class UnitsBase : MonoBehaviour
     }
 
     protected virtual void Update()
-    {
+    {       
         #region Unit Movement
         if (unitController.moveDirection.magnitude > 0)
         {
+            isMoving = true;
+
             animator.SetBool("bShouldMove", true);
             animator.Play("Locomotion");
 
@@ -48,6 +47,8 @@ public class UnitsBase : MonoBehaviour
         }
         else
         {
+            isMoving = false;
+
             animator.SetBool("bShouldMove", false);
         }
         #endregion

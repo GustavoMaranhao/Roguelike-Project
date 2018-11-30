@@ -2,22 +2,27 @@
 using UnityEngine;
 
 public class GlobalGameController : MonoBehaviour {
+    [Tooltip("Global gravity")]
+    public float gravity = GlobalConstants.Gravity;
 
     [HideInInspector]
     public Camera playerCameraRef;
 
     [HideInInspector]
-    public List<UnitsBase> availableUnits;
+    public Transform playerRef;
 
     [HideInInspector]
-    public List<UnitsBase> selectedUnits;
+    public ControllerBase playerController;
 
     [HideInInspector]
-    public List<UnitsBase> highlightedUnits;
+    public UnitsBase playerUnit;
 
     private void Awake()
     {
         playerCameraRef = Camera.main;
+        playerRef = GameObject.FindGameObjectWithTag(Tags.player).GetComponent<Transform>();
+        playerController = GameObject.FindGameObjectWithTag(Tags.player).GetComponent<ControllerBase>();
+        playerUnit = GameObject.FindGameObjectWithTag(Tags.player).GetComponentInChildren<UnitsBase>();
     }
 
     void Start()

@@ -7,13 +7,13 @@ public class CharacterAnimation : MonoBehaviour {
 	private Animator anim;
 	private HashIDs hash;
 	private AnimatorSetup animSetup;
-    private MainCharacterController unitController;
+    private ControllerBase unitController;
 
 
     void Awake(){
 		anim = GetComponent<Animator>();
 		hash = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<HashIDs>();
-        unitController = transform.parent.gameObject.GetComponent<MainCharacterController>();
+        unitController = transform.parent.gameObject.GetComponent<ControllerBase>();
 
         animSetup = new AnimatorSetup(anim, hash);
 		anim.SetLayerWeight(1, 1f);
