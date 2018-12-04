@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class CharacterAnimation : MonoBehaviour {
+public class EnemyAnimation : MonoBehaviour {
 
 	public float deadZone = 5f;
 	

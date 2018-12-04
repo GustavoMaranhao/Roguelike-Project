@@ -1,16 +1,20 @@
-﻿using UnityEngine;
+﻿public class CharacterUnit : UnitsBase {
 
-public class CharacterUnit : UnitsBase {
-
-    // Overriding the parent base start
+    // Overriding the parent base Start
     override protected void Start()
     {
         base.Start();
+
+        isPlayerTeam = true;
     }
 
-    // Overriding the parent base start
+    // Overriding the parent base Update
     override protected void Update()
     {
         base.Update();
+
+        #region Unit Movement
+        isMoving = unitController.moveDirection.magnitude > 0;
+        #endregion
     }
 }

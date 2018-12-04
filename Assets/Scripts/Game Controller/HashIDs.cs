@@ -2,7 +2,8 @@
 
 public class HashIDs : MonoBehaviour
 {
-
+    public int horizontalParameter;
+    public int verticalParameter;
 	public int dyingState;
 	public int locomotionState;
 	public int shoutState;
@@ -17,7 +18,9 @@ public class HashIDs : MonoBehaviour
 	public int openBool;
 
 	void Awake(){
-		dyingState = Animator.StringToHash("Base Layer.Dying");
+        horizontalParameter = Animator.StringToHash("Horizontal");
+        verticalParameter = Animator.StringToHash("Vertical");
+        dyingState = Animator.StringToHash("Base Layer.Dying");
 		locomotionState = Animator.StringToHash("Base Layer.Locomotion");
 		shoutState = Animator.StringToHash("Shouting.Shout");
 		deadBool = Animator.StringToHash("Dead");
