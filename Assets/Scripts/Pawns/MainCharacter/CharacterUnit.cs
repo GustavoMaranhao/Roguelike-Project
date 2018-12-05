@@ -15,6 +15,7 @@
 
         #region Unit Movement
         isMoving = unitController.moveDirection.magnitude > 0;
+        if(isMoving) animator.Play("Player Locomotion");
         #endregion
     }
 }

@@ -189,18 +189,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100006, guid: 897083d058bbe5245ac4fdaa349967a7,
     type: 3}
   m_PrefabInternal: {fileID: 687668157}
---- !u!114 &174126158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 174126156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 972cff7c6e36dab40b18022725fdaa0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deadZone: 5
 --- !u!114 &174126159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,7 +328,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 897083d058bbe5245ac4fdaa349967a7, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 897083d058bbe5245ac4fdaa349967a7, type: 3}
       propertyPath: m_LocalScale.x
@@ -358,6 +346,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: fc064b04014eaa84fabdf241dded690b, type: 2}
+    - target: {fileID: 9500000, guid: 897083d058bbe5245ac4fdaa349967a7, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 897083d058bbe5245ac4fdaa349967a7, type: 3}
   m_IsPrefabAsset: 0
