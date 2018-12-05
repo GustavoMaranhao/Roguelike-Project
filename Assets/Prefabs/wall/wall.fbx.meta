@@ -1,23 +1,28 @@
 fileFormatVersion: 2
-guid: 3f337e20a326c5d488560891e490a58b
+guid: 76b14c2e679998e4f9412d7e8b688b7b
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Cube
-    100002: //RootNode
-    400000: Cube
-    400002: //RootNode
-    2100000: CubeMat
+    100000: Camera
+    100002: Cube
+    100004: Lamp
+    100006: //RootNode
+    400000: Camera
+    400002: Cube
+    400004: Lamp
+    400006: //RootNode
+    2000000: Camera
+    2100000: Material
     2300000: Cube
     3300000: Cube
     4300000: Cube
-    6400000: Cube
+    10800000: Lamp
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: CubeMat
-    second: {fileID: 2100000, guid: 82336bf58d5739847b6ca3b999c110b2, type: 2}
+      name: Material
+    second: {fileID: 2100000, guid: e7e0bfdd6d0741542b9b8b445da08a50, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -48,13 +53,13 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.0015
+    globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -67,15 +72,15 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
     previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
