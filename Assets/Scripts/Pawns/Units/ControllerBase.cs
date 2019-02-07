@@ -40,6 +40,8 @@ public class ControllerBase : MonoBehaviour {
     private float vertical_force;
     private Collider unitCollider;
 
+    public GameObject test;
+
     // Use this for initialization
     protected virtual void Start () {
         globalGameController = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<GlobalGameController>();
@@ -52,7 +54,7 @@ public class ControllerBase : MonoBehaviour {
 	
 	// Update is called once per frame
 	protected virtual void Update () {
-		
+
 	}
 
     // Update is called once per frame

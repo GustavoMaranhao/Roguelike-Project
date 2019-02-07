@@ -9,5 +9,5 @@
 	public const string boundaries = "Boundaries";
 
     public const int CameraLayer = 8;
-    public const int TerrainLayer = 11;
+    public const int TerrainLayer = 9;
 }

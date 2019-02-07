@@ -5,6 +5,11 @@ public class LocomotionStateMachineBehavior : StateMachineBehaviour {
 
     public float m_Damping = 0.15f;
 
+    public float sensitivity = 1000f;
+
+    private static int ignoreLayerMask = ~((1 << 2) + (1 << Tags.CameraLayer));
+    private static int onlyLayerMask = (1 << Tags.TerrainLayer);
+
     // Use this for initialization
     private void Awake()
     {
@@ -29,13 +34,35 @@ public class LocomotionStateMachineBehavior : StateMachineBehaviour {
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, speed * Time.deltaTime);
         */
 
-        var targetRotation = Quaternion.LookRotation(new Vector3(-vertical, 0, horizontal));
+        RaycastHit cursorRayHit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out cursorRayHit))
+        {
+            var test = ray.GetPoint(cursorRayHit.distance);
+            test.x = 0;
+            test.z = 0;
+            var targetRotation = Quaternion.LookRotation(test);
+
+            animator.gameObject.transform.LookAt(ray.GetPoint(cursorRayHit.distance));
+
+            //animator.gameObject.transform.LookAt(ray.GetPoint(cursorRayHit.distance));
+        }
+
+        //var targetRotation = Quaternion.LookRotation(new Vector3(-vertical, 0, horizontal));
         // Smoothly rotate towards the target point.
-        animator.gameObject.transform.rotation = Quaternion.Slerp(animator.gameObject.transform.rotation, targetRotation, 5 * Time.deltaTime);
+        //animator.gameObject.transform.rotation = Quaternion.Slerp(animator.gameObject.transform.rotation, targetRotation, 5 * Time.deltaTime);
+        //animator.gameObject.transform.rotation = targetRotation;
 
         var currentPosition = animator.gameObject.transform.position;
         var lookingPosition = new Vector3(currentPosition.x + horizontal, currentPosition.y + vertical, 0);
         //animator.gameObject.transform.LookAt(lookingPosition, Vector3.up);
+
+
+        /*Vector3 lookPos = cameraRef.transform.position - transform.position;
+        float angle = Mathf.Atan2(lookPos.x, lookPos.z) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(angle + 180, Vector3.up), Time.deltaTime * 10);*/
+
+
         //Debug.Log("Looking at: " + lookingPosition);
     }
 }
