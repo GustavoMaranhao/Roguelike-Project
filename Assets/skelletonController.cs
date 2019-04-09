@@ -27,11 +27,11 @@ public class skelletonController : MonoBehaviour {
                 return;
             }
 
-            if (!isAttacking && (Input.GetButton("X Axis")))
+            if (!isAttacking && (Input.GetButton("Horizontal") || Input.GetButton("Vertical")))
             {
-                float translationV = Input.GetAxis("Vertical");
-                float translationH = Input.GetAxis("Horizontal");
-                direction = new Vector3(translationH, 0f, translationV);
+                float verticalKey = Input.GetAxis("Vertical");
+                float horizontalKey = Input.GetAxis("Horizontal");
+                direction = new Vector3(horizontalKey, 0f, verticalKey);
                 direction += Quaternion.Euler(new Vector3(0, 90, 0)) * direction;
                 transform.forward = direction;
                 transform.position += direction * speed * Time.deltaTime;
